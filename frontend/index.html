@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StableSwap - Arc Testnet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">StableSwap</h1>
+            <div class="wallet-section">
+                <button id="connectWallet" class="btn-connect">
+                    Connect Wallet
+                </button>
+                <div id="walletInfo" class="wallet-info hidden">
+                    <span id="walletAddress"></span>
+                    <button id="disconnectWallet" class="btn-disconnect">X</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="swap-card">
+                <div class="welcome-section">
+                    <h2>Welcome to <span class="highlight">StableSwap</span></h2>
+                    <p>Fast, secure, and low-cost stablecoin swaps on <strong>Arc Testnet</strong></p>
+                    <p class="tagline">Swap USDC to EURC with zero slippage</p>
+                </div>
+
+                <!-- 2x2 Grid -->
+                <div class="info-grid">
+                    <div class="balance-item">
+                        <span>USDC Balance</span>
+                        <strong id="usdcBalance">0.0</strong>
+                        <button id="addUSDC" class="btn-add">Add</button>
+                    </div>
+                    <div class="balance-item">
+                        <span>EURC Balance</span>
+                        <strong id="eurcBalance">0.0</strong>
+                        <button id="addEURC" class="btn-add">Add</button>
+                    </div>
+                    <div class="contract-item">
+                        <span>USDC Contract</span>
+                        <code>0xAeA...f9d21</code>
+                        <span class="verified">Verified</span>
+                    </div>
+                    <div class="contract-item">
+                        <span>EURC Contract</span>
+                        <code>0x89B...D72a</code>
+                        <span class="verified">Verified</span>
+                    </div>
+                </div>
+
+                <!-- Swap -->
+                <div class="swap-container">
+                    <div class="token-input">
+                        <label>From</label>
+                        <div class="input-group">
+                            <input type="number" id="amountIn" placeholder="0.0" min="0">
+                            <select id="fromToken">
+                                <option value="0xAeA395991357425d3BAcb5C3E8600B31ae7f9d21">USDC</option>
+                                <option value="0x89B50855Aa3bE2F677cD6303Cec089B5F319D72a">EURC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="swapTokens" class="swap-arrow-btn">
+                        Arrow Down
+                    </button>
+
+                    <div class="token-input">
+                        <label>To</label>
+                        <div class="input-group">
+                            <input type="number" id="amountOut" placeholder="0.0" readonly>
+                            <select id="toToken">
+                                <option value="0x89B50855Aa3bE2F677cD6303Cec089B5F319D72a">EURC</option>
+                                <option value="0xAeA395991357425d3BAcb5C3E8600B31ae7f9d21">USDC</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="swapBtn" class="btn-swap" disabled>Enter Amount</button>
+
+                <div class="gm-section">
+                    <button id="gmBtn" class="btn-gm">GM ARC (24h cooldown)</button>
+                    <div id="gmTimer" class="timer hidden"></div>
+                </div>
+
+                <!-- Faucet & Explorer in Box -->
+                <div class="action-box">
+                    <a href="https://faucet.circle.com" target="_blank" class="action-btn">Get Faucet</a>
+                    <a href="https://testnet.arcscan.app" target="_blank" class="action-btn">Arc Explorer</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://x.com/arc" target="_blank" class="social-btn twitter">Follow Arc</a>
+                    <a href="https://discord.gg/buildoncircle" target="_blank" class="social-btn discord">Join Discord</a>
+                    <a href="https://x.com/Irrfan_eth" target="_blank" class="social-btn dev">Irfan.eth</a>
+                </div>
+
+                <div class="footer">
+                    <p>Built with <i class="fas fa-heart heart"></i> by Irfan</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <span id="toastMessage">Action completed!</span>
+        </div>
+        <button id="toastClose" class="toast-close">OK</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
